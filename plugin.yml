@@ -1,0 +1,25 @@
+name: DoubleJump
+version: 1.3
+author: BlueNatural
+main: com.doublejump.bluenatural.Main
+website: ko-fi.com/bluenatural
+depend: [Vault]
+loadbefore: [Vault]
+
+commands:
+  doublejump:
+    description: Show help display
+    usage: /<command>
+    aliases: dj
+    
+permissions:
+  dj.doublejump:
+    description: Having this perm can accept double jumping
+  dj.help:
+    description: When have this perm can show all commands of DoubleJump
+  dj.enable:
+    description: Having this perm can enable DoubleJump
+  dj.disable:
+    description: Having this perm can disable DoubleJump
+  dj.reload:
+    description: Having this permission can reload DoubleJump

@@ -1,0 +1,35 @@
+#Configuration version 1.3
+#Want to edit Sound and Particle,get links here: 
+#Sound: https://www.spigotmc.org/wiki/cc-sounds-list/
+#Particle: https://www.spigotmc.org/wiki/particle-list-1-8-8/
+#So if have problems when fix this plugin please contact me in: https://ko-fi.com/bluenatural
+
+prefix: '&7&l[&a&lDoubleJump&7&l] &c> '
+#Prefix của plugin
+
+delay-jump: 3
+#Thời gian tính bằng giây
+#Thời gian nhảy 2 lần
+
+took-money: 200
+#Lấy tiền để nhảy 2 lần
+#Phải kích hoạt 'true' thì mới hoạt động
+
+active-take-money: true
+#Nếu 'true' sẽ kích hoạt lấy số tiền người chơi
+#Còn 'false' thì ngược lại
+
+particle-jump: FIREWORKS_SPARK
+#Tạo Particle khi nhảy 2 lần
+
+sound.double-jump: ENTITY_WITHER_SHOOT
+#Âm thanh khi nhảy 2 lần
+sound.delay: BLOCK_NOTE_PLING
+#Âm thanh thời gian đếm ngược nhảy 2 lần
+
+title-active: '&aCAN ACTIVE !'
+#Hiện Title khi hết thời gian đếm ngược nhảy 2 lần
+
+reload: '&aReload Successfully !'
+#Hiện tin nhắn khi reload plugin
+no-perm: '&cSorry ! You are not allowed to do this command ! Please contact to Admin or have this perm to do this !'

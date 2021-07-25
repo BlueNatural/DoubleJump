@@ -44,52 +44,26 @@ public class DoubleJumpEvent implements Listener {
 		Player p = e.getPlayer();
 		Location loc = p.getLocation();
 		
-		if ((p.getGameMode() == GameMode.CREATIVE || p.getGameMode() == GameMode.SPECTATOR || p.hasPermission("dj.byass")) || plugin.prevent.contains(p.getUniqueId())) {
+		if (p.getGameMode() == GameMode.CREATIVE || p.getGameMode() == GameMode.SPECTATOR || p.hasPermission("dj.byass"))
 			return;
-		}else{
-		if(!){
 		e.setCancelled(true);
-		p.setFlying(false);
-		p.setAllowFlight(false);
-		Vector v = p.getLocation().getDirection().multiply(1.2).setY(1.2);
-		p.setVelocity(v);
-	   TitleBarAPI api = (TitleBarAPI) plugin.getServer().getPluginManager().getPlugin("TitleBarAPI");
-		if(plugin.getServer().getPluginManager().isPluginEnabled("TitleBarAPI")){		
-			api.titles.sendTitle(p, ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("title-jumping")), "", 20, 40, 20);
+
+		if (plugin.prevent.contains(p.getUniqueId())) {
+			TitleBarAPI api = (TitleBarAPI) plugin.getServer().getPluginManager().getPlugin("TitleBarAPI");
+			Vector v = p.getLocation().getDirection().multiply(1.2).setY(1.2);
+			p.setVelocity(v);
+			p.setFlying(false);
+			p.setAllowFlight(false);
+
+			if (plugin.getServer().getPluginManager().isPluginEnabled("TitleBarAPI"))	
+				api.titles.sendTitle(p, ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("title-jumping")), "", 20, 40, 20);
+				
 			p.playSound(loc, Sound.valueOf(plugin.getConfig().getString("sound-jumping")), 4.0F, 1.0F);
-			loc.getWorld().playEffect(loc, Effect.valueOf(plugin.getConfig().getString("particle-jumping")), 1, 5);
-			loc.getWorld().playEffect(loc, Effect.valueOf(plugin.getConfig().getString("particle-jumping")), 1, 5);
-			loc.getWorld().playEffect(loc, Effect.valueOf(plugin.getConfig().getString("particle-jumping")), 1, 5);
-			loc.getWorld().playEffect(loc, Effect.valueOf(plugin.getConfig().getString("particle-jumping")), 1, 5);
-			loc.getWorld().playEffect(loc, Effect.valueOf(plugin.getConfig().getString("particle-jumping")), 1, 5);
+
 			loc.getWorld().playEffect(loc, Effect.valueOf(plugin.getConfig().getString("particle-jumping")), 1, 5);
 			loc.getWorld().playEffect(loc, Effect.FLAME, 5, 5);
-			loc.getWorld().playEffect(loc, Effect.FLAME, 5, 5);
-			loc.getWorld().playEffect(loc, Effect.FLAME, 5, 5);
-			loc.getWorld().playEffect(loc, Effect.FLAME, 5, 5);
-			loc.getWorld().playEffect(loc, Effect.FLAME, 5, 5);
-			loc.getWorld().playEffect(loc, Effect.FLAME, 5, 5);
+
 			plugin.falling.add(p.getUniqueId());	
-		}else{
-			p.playSound(loc, Sound.valueOf(plugin.getConfig().getString("sound-jumping")), 4.0F, 1.0F);
-			loc.getWorld().playEffect(loc, Effect.valueOf(plugin.getConfig().getString("particle-jumping")), 1, 5);
-			loc.getWorld().playEffect(loc, Effect.valueOf(plugin.getConfig().getString("particle-jumping")), 1, 5);
-			loc.getWorld().playEffect(loc, Effect.valueOf(plugin.getConfig().getString("particle-jumping")), 1, 5);
-			loc.getWorld().playEffect(loc, Effect.valueOf(plugin.getConfig().getString("particle-jumping")), 1, 5);
-			loc.getWorld().playEffect(loc, Effect.valueOf(plugin.getConfig().getString("particle-jumping")), 1, 5);
-			loc.getWorld().playEffect(loc, Effect.FLAME, 5, 5);
-			loc.getWorld().playEffect(loc, Effect.FLAME, 5, 5);
-			loc.getWorld().playEffect(loc, Effect.FLAME, 5, 5);
-			loc.getWorld().playEffect(loc, Effect.FLAME, 5, 5);
-			loc.getWorld().playEffect(loc, Effect.FLAME, 5, 5);
-			loc.getWorld().playEffect(loc, Effect.FLAME, 5, 5);
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("prefix"))+
-					ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("msg.jumping")));
-			plugin.falling.add(p.getUniqueId());
-		}
-		}else{
-			e.setCancelled(true);
-		}
 		}
 	}
 

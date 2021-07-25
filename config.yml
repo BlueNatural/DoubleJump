@@ -1,35 +1,36 @@
-#Configuration version 1.3
-#Want to edit Sound and Particle,get links here: 
-#Sound: https://www.spigotmc.org/wiki/cc-sounds-list/
-#Particle: https://www.spigotmc.org/wiki/particle-list-1-8-8/
-#So if have problems when fix this plugin please contact me in: https://ko-fi.com/bluenatural
+#File Configuration version 1.5.2
+#If you want to edit sound or particle,get link here:
+#Particle link: https://helpch.at/docs/1.8/org/bukkit/Effect.html
+#Sound link: https://www.spigotmc.org/wiki/cc-sounds-list
 
-prefix: '&7&l[&a&lDoubleJump&7&l] &c> '
-#Prefix của plugin
+prefix: '&7&l[&aDouble&eJump&7&l] '
+#Prefix of plugin
 
-delay-jump: 3
-#Thời gian tính bằng giây
-#Thời gian nhảy 2 lần
+sound-jumping: ENTITY_WITHER_SHOOT
+#Play sound when player who jumps
 
-took-money: 200
-#Lấy tiền để nhảy 2 lần
-#Phải kích hoạt 'true' thì mới hoạt động
+title.enable: true
+#If has TitleBarAPI plugin will set title.enable equals true
+#But in the concept will set title.enable equals false
+title-jumping: '&aJUMP !!'
+#Send title when player who jumps
+#Required TitleBarAPI to activate it
 
-active-take-money: true
-#Nếu 'true' sẽ kích hoạt lấy số tiền người chơi
-#Còn 'false' thì ngược lại
+msg.jumping: '&aJump !!'
+#Send message when player who jumps 
+#Will activate if you do not have plugin TitleBarAPI
+msg.enable: false
+#If did not has TitleBarAPI will set msg.enable equals true
+#But in the concept will set msg.enable equals false
+msg.preventing: '&aPrevent {player} can not double-jump complete !'
+#Send message when you add player who to list of preventing player
+#{player} is name of player who you prevent 
 
-particle-jump: FIREWORKS_SPARK
-#Tạo Particle khi nhảy 2 lần
-
-sound.double-jump: ENTITY_WITHER_SHOOT
-#Âm thanh khi nhảy 2 lần
-sound.delay: BLOCK_NOTE_PLING
-#Âm thanh thời gian đếm ngược nhảy 2 lần
-
-title-active: '&aCAN ACTIVE !'
-#Hiện Title khi hết thời gian đếm ngược nhảy 2 lần
+particle-jumping: FIREWORKS_SPARK
+#Play particle when player who jumps
 
 reload: '&aReload Successfully !'
-#Hiện tin nhắn khi reload plugin
-no-perm: '&cSorry ! You are not allowed to do this command ! Please contact to Admin or have this perm to do this !'
+#Send message when reload plugin
+
+no-perm: '&cHey you I can not do your asking because you are not owner or admintrastor to do this !'
+#Send message when you do not have permission to do that

@@ -44,10 +44,10 @@ public class DoubleJumpEvent implements Listener {
 		Player p = e.getPlayer();
 		Location loc = p.getLocation();
 		
-		if(p.getGameMode() == GameMode.CREATIVE || p.getGameMode() == GameMode.SPECTATOR || p.hasPermission("dj.byass")){
+		if ((p.getGameMode() == GameMode.CREATIVE || p.getGameMode() == GameMode.SPECTATOR || p.hasPermission("dj.byass")) || plugin.prevent.contains(p.getUniqueId())) {
 			return;
 		}else{
-		if(!plugin.prevent.contains(p.getUniqueId())){
+		if(!){
 		e.setCancelled(true);
 		p.setFlying(false);
 		p.setAllowFlight(false);
@@ -92,20 +92,16 @@ public class DoubleJumpEvent implements Listener {
 		}
 		}
 	}
-	@SuppressWarnings("static-access")
+
 	@EventHandler
 	public void onFallDamage(EntityDamageEvent e){
-		if(!(e.getEntity() instanceof Player)){
+		if(!(e.getEntity() instanceof Player))
 			return;
-		}
 		Player p = (Player) e.getEntity();
-		if(plugin.falling.contains(p.getUniqueId()) && e.getCause().equals(DamageCause.FALL)){
+
+		if (plugin.falling.contains(p.getUniqueId()) && e.getCause().equals(DamageCause.FALL)){
 			e.setCancelled(true);
 		    plugin.falling.remove(p.getUniqueId());	
-		
-		}else{
-			e.setCancelled(false);
 		}
 	}
-
 }

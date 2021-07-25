@@ -18,25 +18,27 @@ import com.titlebarapi.bluenatural.TitleBarAPI;
 import net.md_5.bungee.api.ChatColor;
 
 public class DoubleJumpEvent implements Listener {
-	public static DoubleJump plugin;
-	@SuppressWarnings("static-access")
+	public DoubleJump plugin;
+	
 	public DoubleJumpEvent(DoubleJump plugin){
 		this.plugin = plugin;
 	}
+
 	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onMove(PlayerMoveEvent e){
 		Player p = e.getPlayer();
-		if(p.getGameMode() == GameMode.CREATIVE || p.getGameMode() == GameMode.SPECTATOR){
+		if (p.getGameMode() == GameMode.CREATIVE || p.getGameMode() == GameMode.SPECTATOR) {
 			return;
 		}
-		if(p.isOnGround()){
-			if(!p.getAllowFlight()){
+
+		if (p.isOnGround()) {
+			if (!p.getAllowFlight()) {
 				p.setAllowFlight(true);
 			}
 		}
 	}
-	@SuppressWarnings({ "static-access" })
+
 	@EventHandler
 	public void onJump(PlayerToggleFlightEvent e){
 		Player p = e.getPlayer();

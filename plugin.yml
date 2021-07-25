@@ -1,25 +1,22 @@
 name: DoubleJump
-version: 1.3
+version: 1.5.2
+main: com.doublejump.bluenatural.DoubleJump
 author: BlueNatural
-main: com.doublejump.bluenatural.Main
 website: ko-fi.com/bluenatural
-depend: [Vault]
-loadbefore: [Vault]
+softdepend: [TitleBarAPI]
 
 commands:
   doublejump:
-    description: Show help display
+    description: show all commands of DoubleJump
     usage: /<command>
     aliases: dj
     
 permissions:
-  dj.doublejump:
-    description: Having this perm can accept double jumping
+  dj.byass:
+    description: If has this perm player who can not double jump
   dj.help:
-    description: When have this perm can show all commands of DoubleJump
-  dj.enable:
-    description: Having this perm can enable DoubleJump
-  dj.disable:
-    description: Having this perm can disable DoubleJump
+    description: If has this perm player who can show all commands of DoubleJump
+  dj.prevent:
+    description: If has this perm player who can prevent player can double jump
   dj.reload:
-    description: Having this permission can reload DoubleJump
+    description: If has this perm player who can reload plugin
